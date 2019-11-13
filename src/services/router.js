@@ -1,24 +1,14 @@
 const express = require('express');
 const router = new express.Router();
 const db = require('../services/database');
+const category_controller = require('../controllers/category')
 
 /**
  * METHOD: GET
  * ROUTE: /todo
  * PURPOSE: Get all tasks
  */
-router.route('/pr/category/:id').get(async (req, res) => {
-  const id = req.params.id;
-  const categories = await db
-    .select('ID_TOC as value', 'HEADER_NAME as text')
-    .from('PR_TOC')
-    .where('ID_COMPANY', id)
-    .orderBy('SEQ_ORDER');
-
-  res.json({
-    categories
-  });
-});
+router.route('/pr/category/:id').get(category_controller.category_detail);
 /**
  * METHOD: POST
  * ROUTE: /todo
