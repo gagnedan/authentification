@@ -2,7 +2,7 @@
   "name": "node-api-knex",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "server/src/index.js",
   "scripts": {
     "start": "node index",
     "dev": "nodemon start",
