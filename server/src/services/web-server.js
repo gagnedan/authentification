@@ -1,5 +1,6 @@
 const http = require('http');
 const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan');
 const router = require('./router.js');
 
@@ -11,6 +12,9 @@ function initialize() {
   return new Promise((resolve, reject) => {
     const app = express();
     httpServer = http.createServer(app);
+
+    // Use cors
+    app.use(cors());
 
     // Combines logging info from request and response
     app.use(morgan('combined'));
