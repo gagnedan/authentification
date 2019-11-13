@@ -11,4 +11,21 @@ exports.category_detail = async (req, res) => {
   res.json({
     categories
   });
-}
+};
+
+/* router.route('/todo').post(async (req, res) => {
+  const {
+    task
+  } = req.body;
+  const newTodo = await db('todo')
+    .insert(task)
+    .then(item => {
+      return item.rowCount;
+    });
+
+  if (newTodo === 1) {
+    return res.status(201).json({
+      message: 'Todo created successfully'
+    });
+  }
+}); */
