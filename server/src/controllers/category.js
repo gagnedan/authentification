@@ -1,7 +1,13 @@
 const db = require('../services/database');
+const bcrypt = require('bcrypt');
 
 exports.category_detail = async (req, res) => {
   const id = req.params.id;
+
+  bcrypt.compare('reason9', '$2a$10$ImCB.CB7zXPcGZEzbAX1IuvSiK2kx7WJeJO7h0NHTF8UXc27mYsvS').then(result => {
+    console.log(result);
+  });
+
   const categories = await db
     .select('ID_TOC as value', 'HEADER_NAME as text')
     .from('PR_TOC')
