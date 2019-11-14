@@ -2,6 +2,7 @@ const http = require('http');
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const router = require('./router.js');
 
 require('dotenv').config();
@@ -18,6 +19,10 @@ function initialize() {
 
     // Combines logging info from request and response
     app.use(morgan('combined'));
+
+    // Use bobyParser middleware
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
 
     // Mount the router at /api so all its routes start with /api
     app.use('/api', router);

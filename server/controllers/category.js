@@ -1,5 +1,4 @@
 const db = require('../services/database');
-const bcrypt = require('bcrypt');
 
 exports.category_detail = async (req, res) => {
   const id = req.params.id;
