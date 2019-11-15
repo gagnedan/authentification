@@ -1,20 +1,25 @@
 <template>
 <!-- eslint-disable max-len -->
   <div class="container mx-auto px-4 py-6">
-    <form>
+    {{errorMessage}}
+    <form @submit.prevent="login()">
       <label for="username"
         class="block uppercase tracking-wide text-gray-700 text-xs
-        font-bold mb-1">Username
+        font-bold mb-1">Nom d'utilisateur
       </label>
-      <input type="text" name="username" id="username"
+      <input
+        v-model="user.username"
+        type="text" name="username" id="username"
         class="w-1/3 appearance-none block bg-gray-200 text-gray-700 border
         border-gray-500 rounded py-2 px-4 mb-3 leading-tight focus:outline-none
         focus:bg-white" />
       <label for="password"
         class="block uppercase tracking-wide text-gray-700 text-xs
-        font-bold mb-1">Password
+        font-bold mb-1">Mot de passe
       </label>
-      <input type="text" name="password" id="passsword"
+      <input
+        v-model="user.password"
+        type="text" name="password" id="passsword"
         class="w-1/3 appearance-none block bg-gray-200 text-gray-700 border
         border-gray-500 rounded py-2 px-4 mb-3 leading-tight focus:outline-none
         focus:bg-white" />
@@ -28,10 +33,54 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
+const LOGIN_URL = 'http://localhost:5000/api/auth/login';
 
 export default {
-  name: 'home',
+  data: () => ({
+    errorMessage: '',
+    user: {
+      username: '',
+      password: '',
+    },
+  }),
+  methods: {
+    login() {
+      this.errorMessage = '';
+      if (this.validUser()) {
+        const body = {
+          username: this.user.username,
+          password: this.user.password,
+        };
+
+        fetch(LOGIN_URL,
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(body),
+          }).then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          return response.json().then((error) => {
+            throw new Error(error.message);
+          });
+        }).then((result) => {
+          this.$router.push('/dashboard');
+        }).catch((error) => {
+          this.errorMessage = error.message;
+        });
+      }
+    },
+    validUser() {
+      if (this.user.username && this.user.password) {
+        return true;
+      }
+      this.errorMessage = 'Invalid login';
+      return false;
+    },
+  },
 };
 </script>
