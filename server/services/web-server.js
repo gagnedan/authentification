@@ -21,11 +21,30 @@ function initialize() {
     app.use(morgan('combined'));
 
     // Use bobyParser middleware
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.urlencoded({
+      extended: true
+    }));
     app.use(bodyParser.json());
 
     // Mount the router at /api so all its routes start with /api
     app.use('/api', router);
+
+    function notFound(req, res, next) {
+      res.status(404);
+      const error = new Error('Not Found - ' + req.originalUrl);
+      next(error);
+    }
+
+    function errorHandler(err, req, res, next) {
+      res.status(res.statusCode || 500);
+      res.json({
+        message: err.message,
+        stack: err.stack
+      });
+    }
+
+    app.use(notFound);
+    app.use(errorHandler);
 
     httpServer
       .listen(process.env.PORT)
