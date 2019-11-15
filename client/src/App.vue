@@ -1,14 +1,20 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Login</router-link> |
-    </div>
-    <router-view/>
-  </div>
+<!-- eslint-disable max-len -->
+<div>
+  <Header></Header>
+  <router-view />
+</div>
 </template>
 
 <script>
+import Header from './components/Header.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
