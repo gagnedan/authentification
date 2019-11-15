@@ -68,6 +68,7 @@ export default {
             throw new Error(error.message);
           });
         }).then((result) => {
+          localStorage.token = result.token;
           this.$router.push('/dashboard');
         }).catch((error) => {
           this.errorMessage = error.message;

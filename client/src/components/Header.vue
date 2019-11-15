@@ -2,7 +2,7 @@
 <!-- eslint-disable max-len -->
   <div class="flex bg-blue-brand h-16 items-center justify-between px-4">
     <div class="w-3/12">
-      <a href="#" class="focus:outline-none">
+      <a href="/" class="focus:outline-none">
         <svg class="fill-current text-white inline-block h-10 w-auto" viewBox="0 0 140 32"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M7.363 30.147H1.485V9.642h5.878v20.505zm0-22.686H1.485V2.806h5.878V7.46z" />
