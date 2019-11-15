@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable max-len -->
   <div class="container mx-auto px-4 py-6">
-    {{errorMessage}}
+    <Alert :message=errorMessage></Alert>
     <form @submit.prevent="login()">
       <label for="username"
         class="block uppercase tracking-wide text-gray-700 text-xs
@@ -34,9 +34,14 @@
 
 <script>
 
+import Alert from '../components/Alert.vue';
+
 const LOGIN_URL = 'http://localhost:5000/api/auth/login';
 
 export default {
+  components: {
+    Alert,
+  },
   data: () => ({
     errorMessage: '',
     user: {
@@ -79,7 +84,7 @@ export default {
       if (this.user.username && this.user.password) {
         return true;
       }
-      this.errorMessage = 'Invalid login';
+      this.errorMessage = 'Invalid login : Please try again';
       return false;
     },
   },
