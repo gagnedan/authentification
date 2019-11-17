@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable max-len -->
   <div class="container mx-auto px-4 py-6">
-    <Alert :message=errorMessage></Alert>
+    <Alert :message="errorMessage" @errorMessageChanged="updateMessage"></Alert>
     <form @submit.prevent="login()">
       <label for="username"
         class="block uppercase tracking-wide text-gray-700 text-xs
@@ -50,6 +50,9 @@ export default {
     },
   }),
   methods: {
+    updateMessage(message) {
+      this.errorMessage = message;
+    },
     login() {
       this.errorMessage = '';
       if (this.validUser()) {
