@@ -21,6 +21,13 @@ const routes = [{
   path: '/dashboard',
   name: 'dashboard',
   component: Dashboard,
+  beforeEnter: (to, from, next) => {
+    if (localStorage.token) {
+      next();
+    } else {
+      next('/login');
+    }
+  },
 },
 
 ];
