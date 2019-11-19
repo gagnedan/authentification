@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const router = require('./router.js');
+const middlewares = require('./middlewares');
 
 require('dotenv').config();
 
@@ -25,6 +26,8 @@ function initialize() {
       extended: true
     }));
     app.use(bodyParser.json());
+
+    app.use(middlewares.checkTokenSetUser);
 
     // Mount the router at /api so all its routes start with /api
     app.use('/api', router);

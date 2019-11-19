@@ -46,3 +46,9 @@ exports.login = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.home = (req, res, next) => {
+  res.json({
+    user: req.user
+  })
+};
