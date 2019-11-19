@@ -3,8 +3,19 @@
   <div>
     <HeaderLogged :user="user"></HeaderLogged>
     <div class="container mx-auto px-4 py-6">
-      <div class="text-xl">Welcome to your Dashboard</div>
+      <div class="text-3xl pb-6">Tableau de bord</div>
+      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="px-4 py-4">
+        <div class="font-bold text-xl">Éditeur de revue de presse</div>
+      </div>
+      <div class="px-4 mb-4">
+        <div class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mb-2"><a href="javascript:void(0)">Catégories</a></div>
+        <div class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mb-2"><a href="javascript:void(0)">Mots-Clés</a></div>
+        <div class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mb-2"><a href="javascript:void(0)">Adresses de courriel</a></div>
+      </div>
+      </div>
     </div>
+
   </div>
 </template>
 <script>
