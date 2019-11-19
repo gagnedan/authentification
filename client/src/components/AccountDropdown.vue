@@ -32,7 +32,7 @@
     <button
       v-if="isOpen"
       @click="isOpen = false"
-      class="fixed inset-0 h-full w-full bg-black opacity-25 cursor-default"
+      class="fixed inset-0 h-full w-full bg-black opacity-0 cursor-default"
       tabindex="-1"
       ></button>
     <div v-if="isOpen" class="absolute mt-2 bg-white rounded-lg py-2 shadow-md w-64 right-0">
@@ -61,6 +61,7 @@ export default {
     const handleEscape = (e) => {
       if (e.key === 'Esc' || e.key === 'Escape') {
         this.isOpen = false;
+        document.activeElement.blur();
       }
     };
     document.addEventListener('keydown', handleEscape);
@@ -78,7 +79,7 @@ export default {
   border: 2px solid #4987ea;
   border-radius: 0.5rem;
 
-  &:hover {
+  &:hover, &:focus {
     padding: 4px 4px;
     border: 2px solid #e2e8f0;
     border-radius: 0.5rem;
