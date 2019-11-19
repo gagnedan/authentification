@@ -4,7 +4,7 @@
     <button @click="isOpen = !isOpen" type="button" class="relative z-10 block focus:outline-none p-1 btn">
       <div class="flex items-center">
         <div
-          class="flex justify-center items-center h-10 w-10 rounded-full border border-gray-700 bg-gray-300"
+          class="flex justify-center items-center h-10 w-10 rounded-full border border-gray-700 bg-white"
         >
           <span class="text-xl text-blue-brand font-bold uppercase">
             {{ user.initial }}
