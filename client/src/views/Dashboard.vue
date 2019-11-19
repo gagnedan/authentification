@@ -4,11 +4,6 @@
     <HeaderLogged :user="user"></HeaderLogged>
     <div class="container mx-auto px-4 py-6">
       <div class="text-xl">Welcome to your Dashboard</div>
-      <button
-        @click.prevent="logout()"
-        class="w-1/3 bg-blue-brand text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        type="submit" id="form-submit-button">Logout
-      </button>
     </div>
   </div>
 </template>
@@ -36,8 +31,7 @@ export default {
         if (result.user) {
           this.user = result.user;
         } else {
-          localStorage.removeItem('token');
-          this.$router.push('/');
+          this.logout();
         }
       });
   },

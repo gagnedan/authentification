@@ -13,23 +13,19 @@
       </router-link>
     </div>
     <div>
-      <div class="flex items-center">
-        <button type="button" class="block focus:outline-none">
-          <div class="flex justify-center items-center h-10 w-10 rounded-full border border-gray-700 bg-gray-300">
-            <span class="text-xl text-blue-brand font-bold uppercase">{{user.initial}}</span>
-          </div>
-        </button>
-        <div class="ml-3">
-          <div class="text-sm text-white">{{user.firstname}} {{user.lastname}}</div>
-          <div class="text-xs text-white uppercase tracking-wide">{{user.company}}</div>
-        </div>
-      </div>
+    <AccountDropdown :user="user"></AccountDropdown>
     </div>
   </div>
 </template>
 
 <script>
+
+import AccountDropdown from './AccountDropdown.vue';
+
 export default {
   props: ['user'],
+  components: {
+    AccountDropdown,
+  },
 };
 </script>
