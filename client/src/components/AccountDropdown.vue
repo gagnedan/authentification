@@ -39,7 +39,7 @@
       <a
         class="block px-4 py-2 text-gray-800 hover:bg-blue-brand hover:text-white"
         href="javascript:void(0)" @click="logout()">
-        Logout
+        Se déconnecter
       </a>
     </div>
   </div>
