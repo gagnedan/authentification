@@ -34,7 +34,6 @@ export default {
     }).then(res => res.json())
       .then((result) => {
         if (result.user) {
-          console.log(result.user);
           this.user = result.user;
         } else {
           localStorage.removeItem('token');
