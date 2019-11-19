@@ -1,6 +1,8 @@
 <template>
 <!-- eslint-disable max-len -->
-  <div class="container mx-auto px-4 py-6">
+<div>
+  <Header></Header>
+<div class="container mx-auto px-4 py-6">
     <Alert :message="errorMessage" @errorMessageChanged="updateMessage"></Alert>
     <form @submit.prevent="login()">
       <label for="username"
@@ -30,17 +32,20 @@
       </button>
     </form>
   </div>
+</div>
 </template>
 
 <script>
 
 import Alert from '../components/Alert.vue';
+import Header from '../components/Header.vue';
 
 const LOGIN_URL = 'http://localhost:5000/api/auth/login';
 
 export default {
   components: {
     Alert,
+    Header,
   },
   data: () => ({
     errorMessage: '',

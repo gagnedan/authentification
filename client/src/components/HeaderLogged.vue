@@ -12,5 +12,18 @@
         </svg>
       </router-link>
     </div>
+    <div>
+      <div class="flex items-center">
+        <button type="button" class="block focus:outline-none">
+          <div class="flex justify-center items-center h-10 w-10 rounded-full border border-gray-700 bg-gray-300">
+            <span class="text-xl text-blue-brand font-bold uppercase">d</span>
+          </div>
+        </button>
+        <div class="ml-3">
+          <div class="text-sm text-white">Daniel Gagné</div>
+          <div class="text-xs text-white uppercase tracking-wide">influence communication</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
