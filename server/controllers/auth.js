@@ -19,6 +19,7 @@ exports.login = async (req, res, next) => {
           firstname: user[0].FIRST_NAME,
           lastname: user[0].LAST_NAME,
           company: user[0].NAME,
+          initial: user[0].FIRST_NAME[0]
         };
         jwt.sign(payload, process.env.TOKEN_SECRET, {
           expiresIn: '1d'
