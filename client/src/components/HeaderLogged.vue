@@ -16,7 +16,7 @@
       <div class="flex items-center">
         <button type="button" class="block focus:outline-none">
           <div class="flex justify-center items-center h-10 w-10 rounded-full border border-gray-700 bg-gray-300">
-            <span class="text-xl text-blue-brand font-bold uppercase">{{getFirstLetter(user.firstname)}}</span>
+            <span class="text-xl text-blue-brand font-bold uppercase">{{user.initial}}</span>
           </div>
         </button>
         <div class="ml-3">
@@ -31,14 +31,5 @@
 <script>
 export default {
   props: ['user'],
-  methods: {
-    getFirstLetter(name) {
-      if (name) {
-        const firstLetter = name[0];
-        return firstLetter;
-      }
-      return '';
-    },
-  },
 };
 </script>

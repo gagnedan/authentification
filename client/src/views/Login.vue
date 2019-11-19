@@ -21,7 +21,7 @@
       </label>
       <input
         v-model="user.password"
-        type="text" name="password" id="passsword"
+        type="password" name="password" id="passsword"
         class="w-1/3 appearance-none block bg-gray-200 text-gray-700 border
         border-gray-500 rounded py-2 px-4 mb-3 leading-tight focus:outline-none
         focus:bg-white" />
