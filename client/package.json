@@ -38,7 +38,7 @@
       "parser": "babel-eslint"
     }
   },
-  "postcss" : {
+  "postcss": {
     "plugins": {
       "tailwindcss": "./tailwind.js",
       "autoprefixer": {}

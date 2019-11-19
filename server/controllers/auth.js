@@ -7,7 +7,7 @@ exports.login = async (req, res, next) => {
   const password = req.body.password;
 
   const user = await db
-    .select('ID', 'USERNAME', 'ENCRYPTED_PASSWORD')
+    .select('ID', 'USERNAME', 'FIRSTNAME', 'LASTNAME', 'ENCRYPTED_PASSWORD')
     .from('USERS')
     .where('USERNAME', username);
 

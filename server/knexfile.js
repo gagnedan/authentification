@@ -8,7 +8,7 @@ module.exports = {
       host: process.env.DATABASE_HOST,
       database: process.env.DATABASE_NAME,
       user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_ACCESS_KEY,
+      password: process.env.DATABASE_PASSWORD,
     },
     fetchAsString: ['number', 'clob'],
     pool: {
@@ -24,11 +24,18 @@ module.exports = {
   },
 
   testing: {
-    client: 'pg',
-    connection: process.env.DB_URL,
-    searchPath: ['knex', 'public'],
-    migrations: {
-      directory: './data/migrations',
+    client: 'oracledb',
+    connection: {
+      port: process.env.DATABASE_PORT,
+      host: process.env.DATABASE_HOST,
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+    },
+    fetchAsString: ['number', 'clob'],
+    pool: {
+      min: 0,
+      max: 7
     },
     seeds: {
       directory: './data/seeds'
@@ -36,11 +43,18 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
-    connection: process.env.DB_URL,
-    searchPath: ['knex', 'public'],
-    migrations: {
-      directory: './data/migrations',
+    client: 'oracledb',
+    connection: {
+      port: process.env.DATABASE_PORT,
+      host: process.env.DATABASE_HOST,
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+    },
+    fetchAsString: ['number', 'clob'],
+    pool: {
+      min: 0,
+      max: 7
     },
     seeds: {
       directory: './data/seeds'

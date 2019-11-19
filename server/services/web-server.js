@@ -32,27 +32,13 @@ function initialize() {
     // Mount the router at /api so all its routes start with /api
     app.use('/api', router);
 
-    function notFound(req, res, next) {
-      res.status(404);
-      const error = new Error('Not Found - ' + req.originalUrl);
-      next(error);
-    }
-
-    function errorHandler(err, req, res, next) {
-      res.status(res.statusCode || 500);
-      res.json({
-        message: err.message,
-        stack: err.stack
-      });
-    }
-
-    app.use(notFound);
-    app.use(errorHandler);
+    app.use(middlewares.notFound);
+    app.use(middlewares.errorHandler);
 
     httpServer
-      .listen(process.env.PORT)
+      .listen(process.env.APP_PORT)
       .on('listening', () => {
-        console.log(`Web server listening on localhost:${process.env.PORT}`);
+        console.log(`Web server listening on localhost:${process.env.APP_PORT}`);
 
         resolve();
       })
