@@ -48,7 +48,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
-exports.home = (req, res, next) => {
+exports.user = (req, res, next) => {
   res.json({
     user: req.user
   })
