@@ -2,7 +2,7 @@
 <!-- eslint-disable max-len -->
 <div>
   <Header></Header>
-<div class="container mx-auto px-4 py-6">
+  <div class="container mx-auto px-4 py-6">
     <Alert :message="errorMessage" @errorMessageChanged="updateMessage"></Alert>
     <form @submit.prevent="login()">
       <label for="username"

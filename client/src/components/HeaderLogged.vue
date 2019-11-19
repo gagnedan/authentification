@@ -16,14 +16,29 @@
       <div class="flex items-center">
         <button type="button" class="block focus:outline-none">
           <div class="flex justify-center items-center h-10 w-10 rounded-full border border-gray-700 bg-gray-300">
-            <span class="text-xl text-blue-brand font-bold uppercase">d</span>
+            <span class="text-xl text-blue-brand font-bold uppercase">{{getFirstLetter(user.firstname)}}</span>
           </div>
         </button>
         <div class="ml-3">
-          <div class="text-sm text-white">Daniel Gagné</div>
-          <div class="text-xs text-white uppercase tracking-wide">influence communication</div>
+          <div class="text-sm text-white">{{user.firstname}} {{user.lastname}}</div>
+          <div class="text-xs text-white uppercase tracking-wide">{{user.company}}</div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['user'],
+  methods: {
+    getFirstLetter(name) {
+      if (name) {
+        const firstLetter = name[0];
+        return firstLetter;
+      }
+      return '';
+    },
+  },
+};
+</script>
