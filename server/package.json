@@ -27,7 +27,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.20.1",
+    "knex": "^2.4.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.4",
     "oracledb": "^4.0.1"
